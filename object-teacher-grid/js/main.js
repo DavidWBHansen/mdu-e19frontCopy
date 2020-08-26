@@ -1,11 +1,6 @@
 "use strict"; // to enable strict mode and modern JavaScript functionality
 
-// appends a string to the DOM
-document.querySelector("#content").innerHTML = "Hi Frontenders!";
 
-function showAlert() {
-  alert('Open your Developer Console!');
-}
 
 // declaring teacher objects
 let teacher1 = {
@@ -73,15 +68,14 @@ teacher3.position + "<br>" +
 "<a href='mailto:" + teacher3.mail + "'>" + teacher3.mail + "</a>" + "<br>" + teacher3.phone 
 "</article>";
 
-document.querySelector("#teacher-grid").innerHTML += 
-"<article>" +
-"<img src='" + teacher4.img + "'>" +
-"<h3>" + teacher4.name + "</h3>" +
-teacher4.position + "<br>" +
-"<a href='mailto:" + teacher4.mail + "'>" + teacher4.mail + "</a>" + "<br>" + teacher4.phone 
-"</article>";
-
-
+document.querySelector("#teacher-grid").innerHTML += `
+<article>
+<img src="${teacher4.img}">
+<h3>${teacher4.name}</h3>
+${teacher4.position}<br>
+<a href="${teacher4.mail}+"> ${teacher4.mail} </a> <br> 
+</article>;
+`
 // logs the teacher objects to the console
 console.log(teacher1);
 console.log(teacher2);
