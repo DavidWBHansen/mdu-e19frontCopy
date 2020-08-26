@@ -44,10 +44,19 @@ console.log(familyMembers);
 /*
 Appends data to the DOM
 */
+/*fetch('json/persons.json')
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(json) {
+    console.log(json);
+    // TODO: call append functionality
+  });*/
 function appendPersons(persons) {
+
   let htmlTemplate = "";
   for (const person of persons) {
-    htmlTemplate += /*html*/`
+    htmlTemplate += /*html*/ `
     <article>
       <img src="${person.img}">
       <h4>${person.name}</h4>
@@ -60,11 +69,35 @@ function appendPersons(persons) {
   document.querySelector("#persons").innerHTML = htmlTemplate;
 }
 
+/*fetch('json/persons.json')
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(json) {
+    let htmlTemplate = "";
+  for (const person of persons) {
+    htmlTemplate += `
+    <article>
+      <img src="${person.img}">
+      <h4>${person.name}</h4>
+      <p>${person.age} years old</p>
+      <p>Hair color: ${person.hairColor}</p>
+      <p>Relation: ${person.relation}</p>
+    </article>
+  `;
+  }
+// TODO: call append functionality
+});*/
+
+
+
+
 appendPersons(familyMembers);
 
 /*
 Search functionality: find objects by given searchValue
 */
+
 function search(searchValue) {
   searchValue = searchValue.toLowerCase();
   console.log(searchValue);
@@ -77,8 +110,20 @@ Adds a new object to the array familyMembers
 */
 function add() {
   console.log("Add button clicked");
+  let name = document.getElementById('inputName').value;
+  let age = document.getElementById('inputAge').value;
+  let hairColor = document.getElementById('inputHairColor').value;
+  let relation = document.getElementById('inputRelation').value;
+  let imageUrl = document.getElementById('inputImageUrl').value;
 
-  let inputName = document.getElementById('inputName');
-
-  // TODO: implement add functionality
+  let addMember = {
+    name: name,
+    age: age,
+    hairColor: hairColor,
+    relation: relation,
+    imageUrl: imageUrl,
+  };
+  familyMembers.push(addMember)
+  document.querySelector("#persons").innerHTML = "";
+  appendPersons(familyMembers)
 }
